@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Rapat - Karang Taruna RW 13</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .content {
+            margin-top: 30px;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .output {
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: normal;
+            line-height: 1.8;
+        }
+        .signature {
+            margin-top: 40px;
+            font-style: italic;
+        }
+        .footer {
+            margin-top: 60px;
+        }
+        .input-field {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Halaman Input Nama -->
+    <div id="page1" style="display:block;">
+        <h1>Masukkan Nama Anda</h1>
+        <div class="input-field">
+            <label for="name">Nama:</label><br>
+            <input type="text" id="name" placeholder="Masukkan nama lengkap" required>
+        </div>
+        <button onclick="goToPage2()">Masuk</button>
+    </div>
+
+    <!-- Halaman Undangan -->
+    <div id="page2" style="display:none;">
+        <h1>UNDANGAN RAPAT</h1>
+        <h2>Pembentukan Seksi-Seksi Karang Taruna RW. 13 Kalitanjung Barat</h2>
+        <div class="content">
+            <div class="output" id="output">
+                <!-- Nama akan tampil di sini -->
+            </div>
+
+            <p>Dengan hormat,</p>
+            <p>Dalam rangka pembentukan seksi-seksi kepengurusan Karang Taruna RW. 13 Kalitanjung Barat, kami mengundang Saudara/i untuk hadir pada rapat yang akan dilaksanakan pada:</p>
+
+            
+            <p><strong>Hari/Tanggal</strong>: Minggu, 8 Desember 2024</p>
+            <p><strong>Waktu</strong>: Pukul 19.30 WIB s.d. selesai</p>
+            <p><strong>Tempat</strong>: BAPERKAM RW 13</p>
+
+            <p>Mengingat pentingnya rapat ini, kami sangat mengharapkan kehadiran Saudara/i tepat waktu. Adapun agenda rapat adalah sebagai berikut:</p>
+            <ul>
+                <li>Pembukaan</li>
+                <li>Pembentukan Seksi-Seksi Karang Taruna</li>
+                <li>Penyampaian Program Kerja Awal</li>
+                <li>Diskusi dan Tanya Jawab</li>
+                <li>Penutup</li>
+            </ul>
+
+            <div class="signature">
+                <p>Demikian undangan ini kami sampaikan. Atas perhatian dan kehadiran Saudara/i, kami ucapkan terima kasih.</p>
+                <p><strong>Hormat kami,</strong><br>Ketua Karang Taruna RW. 13 Kalitanjung Barat</p>
+            </div>
+
+            <div class="footer">
+                <button onclick="goBack()">Kembali ke Halaman  Awal</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk melanjutkan ke halaman 2 setelah nama diinput
+        function goToPage2() {
+            const name = document.getElementById("name").value.trim();
+            if (name) {
+                // Sembunyikan halaman pertama dan tampilkan halaman kedua
+                document.getElementById("page1").style.display = "none";
+                document.getElementById("page2").style.display = "block";
+                // Tampilkan nama yang dimasukkan di halaman undangan
+                const output = document.getElementById("output");
+                output.innerHTML = `
+                    Kepada Yth.Saudara/i: <br><b>${name}</b><br>
+                    Di Tempat
+                    </b><br>
+                    
+                `;
+            } else {
+                alert("Silakan masukkan nama terlebih dahulu!");
+            }
+        }
+
+        // Fungsi untuk kembali ke halaman 1
+        function goBack() {
+            document.getElementById("page1").style.display = "block";
+            document.getElementById("page2").style.display = "none";
+        }
+    </script>
+</body>
+</html>
